@@ -137,3 +137,15 @@ test('Post compile script should be executed when --post-compile  is sent with c
 
   strictEqual(stdout.indexOf('Post compile hook complete') >= 0, true, 'Post compile message should be found in stdout')
 })
+
+test('uses --project configuration', async () => {
+  const { stdout } = await execa('node', [
+    borp,
+    '--project=tsconfig.test.json'
+  ], {
+    cwd: join(import.meta.url, '..', 'fixtures', 'ts-project')
+  })
+
+  strictEqual(stdout.indexOf('testMe') >= 0, true, 'stdout should contain included test')
+  strictEqual(stdout.indexOf('doNotTestMe'), -1, 'stdout should not contain excluded test')
+})

@@ -111,6 +111,7 @@ Note the use of `incremental: true`, which speed up compilation massively.
 * `--no-typescript` or `-T`, disable automatic TypeScript compilation if `tsconfig.json` is found.
 * `--post-compile` or `-P`, the path to a file that will be executed after each typescript compilation.
 * `--check-coverage`, enables c8 check coverage; default is false
+* `--project`, the path to the typescript config file to be used by tsc
 ### Check coverage options
 * `--lines`, set the lines threshold when check coverage is active; default is 100
 * `--functions`, set the functions threshold when check coverage is active; default is 100
